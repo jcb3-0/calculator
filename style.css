@@ -7,4 +7,52 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: black;
 }
+#display {
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    font-size:36px;
+    color: white;
+}
+#buttons {
+    width: auto;
+    display: flex;
+    background-color: ;
+}
+.right {
+    margin-left: 2px;
+    display: flex;
+    flex-direction: column;
+}
+.right button {
+    background-color: orange;
+    color: white;
+
+}
+.left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#numbers {
+    margin: 0;
+    padding: 0;
+}
+#numbers button {
+    background-color: gray;
+    color: white;
+}
+button {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-color: black;
+    margin: 2px 1px;
+}
+button:hover {
+    filter: brightness(75%);
+}
+
