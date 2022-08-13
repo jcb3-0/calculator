@@ -14,6 +14,8 @@ const operate = () => {
         if (numbers.length == 2) {
             display.innerText = numbers[0]+numbers[1];
             numbers = [parseInt(display.innerText)];
+            console.log(numbers);
+
         }
         break;
     case 'x':
@@ -49,12 +51,14 @@ add.addEventListener('click', () => {
 });
 multiply.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue))
         console.log(numbers);
         operator = multiply.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
         operator = multiply.innerText;
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue));
         console.log(numbers);
         displayValue = 0
