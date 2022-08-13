@@ -4,40 +4,53 @@ const two = document.querySelector('.two')
 const add = document.querySelector('.add')
 let operator = '';
 const equals = document.querySelector('.equals')
-let displayArray = [];
-let firstNumber = 0;
-let secondNumber = 0;
+let displayValue = 0;
+let numbers = [];
+// let secondNumber = [];
 
 const operate = () => {
     switch (operator) {
     case '+':
-        display.innerText = firstNumber+secondNumber;
-        displayArray = [display.innerText];
+        if (numbers.length == 2) {
+            display.innerText = numbers[0]+numbers[1];
+            // displayValue = [display.innerText];
+            numbers = [parseInt(display.innerText)];
+            console.log(`numbers is ${numbers}`);
+            // secondNumber.shift();    
+        }
         break;
 }};
 
 // event listners
 one.addEventListener('click', () => {
-    displayArray.push(one.innerText);
-    console.log(displayArray);
-    display.innerText = displayArray.join('');
+    displayValue == 0 ? displayValue = one.innerText : displayValue += (one.innerText);
+    console.log(displayValue);
+    display.innerText = displayValue;
 });
 two.addEventListener('click', () => {
-    displayArray.push(two.innerText);
-    console.log(displayArray);
-    display.innerText = displayArray.join('');
+    displayValue == 0 ? displayValue = two.innerText : displayValue += (two.innerText);
+    console.log(displayValue);
+    display.innerText = displayValue;
 });
 add.addEventListener('click', () => {
-    firstNumber = parseInt(displayArray.join(''));
-    operator = add.innerText;
-    console.log(add);
-    console.log(firstNumber);
-    displayArray = [];
+    if (numbers[0] == undefined)  {
+        numbers.push(parseInt(displayValue))
+        operator = add.innerText;
+        console.log(numbers);
+        displayValue = 0    
+    } else if (operator != undefined) {
+        operator = add.innerText;
+        numbers.push(parseInt(displayValue));
+        console.log(`numbers is ${numbers}`);
+        displayValue = 0
+        operate();    
+    }
 });
 equals.addEventListener('click', () => {
-    secondNumber = parseInt(displayArray.join(''));
-    console.log(secondNumber);
-    displayArray = [];
+    numbers.push(parseInt(displayValue));
+    console.log(numbers);
+    displayValue = 0
     operate();
 });
 
+// use ONE array to store the numbers?
