@@ -10,9 +10,12 @@ const eight = document.querySelector('.eight')
 const nine = document.querySelector('.nine')
 const zero = document.querySelector('.zero')
 
+const clear = document.querySelector('.AC')
 const add = document.querySelector('.add')
 const multiply = document.querySelector('.multiply')
 const subtract = document.querySelector('.subtract')
+const divide = document.querySelector('.divide')
+
 
 let operator = '';
 const equals = document.querySelector('.equals')
@@ -49,7 +52,15 @@ const operate = () => {
             console.log(operator);
         }
         break;
-
+        case '/':
+            if (numbers.length == 2) {
+                display.innerText = numbers[0]/numbers[1];
+                numbers = [parseInt(display.innerText)];
+                console.log(numbers);
+                displayValue = 1;
+                console.log(operator);
+            }
+            break;    
 }};
 
 // event listeners
@@ -137,11 +148,34 @@ multiply.addEventListener('click', () => {
         displayValue = 0
     }
 });
-
+divide.addEventListener('click', () => {
+    if (numbers[0] == undefined)  {
+        displayValue = display.innerText;
+        numbers.push(parseInt(displayValue))
+        console.log(numbers);
+        operator = '/';
+        displayValue = 0    
+    } else if (operator != undefined) {
+        numbers.push(parseInt(displayValue));
+        operate();    
+        operator = '/';
+        displayValue = display.innerText;
+        console.log(numbers);
+        displayValue = 0
+    }
+});
 equals.addEventListener('click', () => {
     numbers.push(parseInt(displayValue));
     // displayValue = 0
     console.log(numbers);
     operate();
+});
+clear.addEventListener('click', () => {
+    numbers = [];
+    displayValue = 0;
+    display.innerText = displayValue;
+    operator = '';
+    console.log(numbers);
+    console.log(displayValue);
 });
 
