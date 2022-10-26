@@ -8,11 +8,11 @@ const six = document.querySelector('.six')
 const seven = document.querySelector('.seven')
 const eight = document.querySelector('.eight')
 const nine = document.querySelector('.nine')
-// const ten = document.querySelector('.nine')
 const zero = document.querySelector('.zero')
 
 const add = document.querySelector('.add')
 const multiply = document.querySelector('.multiply')
+const subtract = document.querySelector('.subtract')
 
 let operator = '';
 const equals = document.querySelector('.equals')
@@ -31,6 +31,15 @@ const operate = () => {
             console.log(operator);
         }
         break;
+    case '-':
+        if (numbers.length === 2) {
+            display.innerText = numbers[0]-numbers[1];
+            console.log(numbers);
+            numbers = [parseInt(display.innerText)];
+            console.log(numbers);
+            displayValue = 0;
+            console.log(operator);
+        }
     case 'x':
         if (numbers.length == 2) {
             display.innerText = numbers[0]*numbers[1];
@@ -95,6 +104,20 @@ add.addEventListener('click', () => {
         console.log(`numbers after push ` + numbers);
         operate();    
         operator = add.innerText;
+        displayValue = 0
+    }
+});
+subtract.addEventListener('click', () => {
+    if (numbers[0] == undefined)  {
+        numbers.push(parseInt(displayValue))
+        operator = subtract.innerText;
+        displayValue = 0    
+    } else if (operator != undefined) {
+        console.log(`displayValue ` + displayValue);
+        numbers.push(parseInt(displayValue));
+        console.log(`numbers after push ` + numbers);
+        operate();    
+        operator = subtract.innerText;
         displayValue = 0
     }
 });
