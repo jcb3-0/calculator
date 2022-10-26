@@ -1,14 +1,14 @@
 const display = document.querySelector('#display');
 const one = document.querySelector('.one');
 const two = document.querySelector('.two')
-const three = document.querySelector('.two')
-const four = document.querySelector('.three')
-const five = document.querySelector('.four')
-const six = document.querySelector('.five')
-const seven = document.querySelector('.six')
-const eight = document.querySelector('.seven')
-const nine = document.querySelector('.eight')
-const ten = document.querySelector('.nine')
+const three = document.querySelector('.three')
+const four = document.querySelector('.four')
+const five = document.querySelector('.five')
+const six = document.querySelector('.six')
+const seven = document.querySelector('.seven')
+const eight = document.querySelector('.eight')
+const nine = document.querySelector('.nine')
+// const ten = document.querySelector('.nine')
 const zero = document.querySelector('.zero')
 
 const add = document.querySelector('.add')
@@ -38,7 +38,6 @@ const operate = () => {
             console.log(numbers);
             displayValue = 1;
             console.log(operator);
-
         }
         break;
 
@@ -51,6 +50,38 @@ one.addEventListener('click', () => {
 });
 two.addEventListener('click', () => {
     displayValue == 0 ? displayValue = '2' : displayValue += '2';
+    display.innerText = displayValue;
+});
+three.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '3' : displayValue += '3';
+    display.innerText = displayValue;
+});
+four.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '4' : displayValue += '4';
+    display.innerText = displayValue;
+});
+five.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '5' : displayValue += '5';
+    display.innerText = displayValue;
+});
+six.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '6' : displayValue += '6';
+    display.innerText = displayValue;
+});
+seven.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '7' : displayValue += '7';
+    display.innerText = displayValue;
+});
+eight.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '8' : displayValue += '8';
+    display.innerText = displayValue;
+});
+nine.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '9' : displayValue += '9';
+    display.innerText = displayValue;
+});
+zero.addEventListener('click', () => {
+    displayValue == 0 ? displayValue = '0' : displayValue += '0';
     display.innerText = displayValue;
 });
 add.addEventListener('click', () => {
