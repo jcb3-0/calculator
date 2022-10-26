@@ -1,8 +1,19 @@
 const display = document.querySelector('#display');
 const one = document.querySelector('.one');
 const two = document.querySelector('.two')
+const three = document.querySelector('.two')
+const four = document.querySelector('.three')
+const five = document.querySelector('.four')
+const six = document.querySelector('.five')
+const seven = document.querySelector('.six')
+const eight = document.querySelector('.seven')
+const nine = document.querySelector('.eight')
+const ten = document.querySelector('.nine')
+const zero = document.querySelector('.zero')
+
 const add = document.querySelector('.add')
 const multiply = document.querySelector('.multiply')
+
 let operator = '';
 const equals = document.querySelector('.equals')
 let displayValue = 0;
@@ -11,11 +22,13 @@ let numbers = [];
 const operate = () => {
     switch (operator) {
     case '+':
-        if (numbers.length == 2) {
+        if (numbers.length === 2) {
             display.innerText = numbers[0]+numbers[1];
+            console.log(numbers);
             numbers = [parseInt(display.innerText)];
             console.log(numbers);
-
+            displayValue = 0;
+            console.log(operator);
         }
         break;
     case 'x':
@@ -23,6 +36,9 @@ const operate = () => {
             display.innerText = numbers[0]*numbers[1];
             numbers = [parseInt(display.innerText)];
             console.log(numbers);
+            displayValue = 1;
+            console.log(operator);
+
         }
         break;
 
@@ -43,10 +59,12 @@ add.addEventListener('click', () => {
         operator = add.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
-        operator = add.innerText;
+        console.log(`displayValue ` + displayValue);
         numbers.push(parseInt(displayValue));
-        displayValue = 0
+        console.log(`numbers after push ` + numbers);
         operate();    
+        operator = add.innerText;
+        displayValue = 0
     }
 });
 multiply.addEventListener('click', () => {
@@ -57,18 +75,19 @@ multiply.addEventListener('click', () => {
         operator = multiply.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
+        numbers.push(parseInt(displayValue));
+        operate();    
         operator = multiply.innerText;
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue));
         console.log(numbers);
         displayValue = 0
-        operate();    
     }
 });
 
 equals.addEventListener('click', () => {
     numbers.push(parseInt(displayValue));
-    displayValue = 0
+    // displayValue = 0
+    console.log(numbers);
     operate();
 });
 
