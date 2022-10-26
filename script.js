@@ -9,6 +9,7 @@ const seven = document.querySelector('.seven')
 const eight = document.querySelector('.eight')
 const nine = document.querySelector('.nine')
 const zero = document.querySelector('.zero')
+const negative = document.querySelector('.negative')
 
 const clear = document.querySelector('.AC')
 const add = document.querySelector('.add')
@@ -169,6 +170,18 @@ equals.addEventListener('click', () => {
     // displayValue = 0
     console.log(numbers);
     operate();
+});
+negative.addEventListener('click', () => {
+    if (parseInt(display.innerText) > 0) {
+        display.innerText = '-' + display.innerText;
+        displayValue = display.innerText;
+    } else if (parseInt(display.innerText) < 0) {
+        console.log('less than zero');
+        let newDisplayText = display.innerText.substring(1);
+        console.log('newDisplayText is ' + newDisplayText);
+        display.innerText = newDisplayText;
+        displayValue =  display.innerText;
+    }
 });
 clear.addEventListener('click', () => {
     numbers = [];
