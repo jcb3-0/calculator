@@ -28,9 +28,9 @@ const operate = () => {
     case '+':
         if (numbers.length === 2) {
             display.innerText = numbers[0]+numbers[1];
-            console.log(numbers);
+            console.log(`numbers ` + numbers);
             numbers = [parseInt(display.innerText)];
-            console.log(numbers);
+            console.log(`numbers ` + numbers);
             displayValue = 0;
             console.log(operator);
         }
@@ -38,9 +38,9 @@ const operate = () => {
     case '-':
         if (numbers.length === 2) {
             display.innerText = numbers[0]-numbers[1];
-            console.log(numbers);
+            console.log(`numbers ` + numbers);
             numbers = [parseInt(display.innerText)];
-            console.log(numbers);
+            console.log(`numbers ` + numbers);
             displayValue = 0;
             console.log(operator);
         }
@@ -48,7 +48,7 @@ const operate = () => {
         if (numbers.length == 2) {
             display.innerText = numbers[0]*numbers[1];
             numbers = [parseInt(display.innerText)];
-            console.log(numbers);
+            console.log(`numbers ` + numbers);
             displayValue = 1;
             console.log(operator);
         }
@@ -57,7 +57,7 @@ const operate = () => {
             if (numbers.length == 2) {
                 display.innerText = numbers[0]/numbers[1];
                 numbers = [parseInt(display.innerText)];
-                console.log(numbers);
+                console.log(`numbers ` + numbers);
                 displayValue = 1;
                 console.log(operator);
             }
@@ -111,9 +111,8 @@ add.addEventListener('click', () => {
         operator = add.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
-        console.log(`displayValue ` + displayValue);
         numbers.push(parseInt(displayValue));
-        console.log(`numbers after push ` + numbers);
+        console.log(`numbers ` + numbers);
         operate();    
         operator = add.innerText;
         displayValue = 0
@@ -125,9 +124,8 @@ subtract.addEventListener('click', () => {
         operator = subtract.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
-        console.log(`displayValue ` + displayValue);
         numbers.push(parseInt(displayValue));
-        console.log(`numbers after push ` + numbers);
+        console.log(`numbers ` + numbers);
         operate();    
         operator = subtract.innerText;
         displayValue = 0
@@ -137,7 +135,7 @@ multiply.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
         numbers.push(parseInt(displayValue))
-        console.log(numbers);
+        console.log(`numbers ` + numbers);
         operator = multiply.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
@@ -145,7 +143,7 @@ multiply.addEventListener('click', () => {
         operate();    
         operator = multiply.innerText;
         displayValue = display.innerText;
-        console.log(numbers);
+        console.log(`numbers ` + numbers);
         displayValue = 0
     }
 });
@@ -153,7 +151,7 @@ divide.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
         numbers.push(parseInt(displayValue))
-        console.log(numbers);
+        console.log(`numbers ` + numbers);
         operator = '/';
         displayValue = 0    
     } else if (operator != undefined) {
@@ -161,15 +159,14 @@ divide.addEventListener('click', () => {
         operate();    
         operator = '/';
         displayValue = display.innerText;
-        console.log(numbers);
+        console.log(`numbers ` + numbers);
         displayValue = 0
     }
 });
 equals.addEventListener('click', () => {
     numbers.push(parseInt(displayValue));
-    // displayValue = 0
-    console.log(numbers);
     operate();
+    numbers = [];
 });
 negative.addEventListener('click', () => {
     if (parseInt(display.innerText) > 0) {
