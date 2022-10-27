@@ -107,10 +107,12 @@ zero.addEventListener('click', () => {
 });
 add.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue))
         operator = add.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue));
         console.log(`numbers ` + numbers);
         operate();    
@@ -120,10 +122,12 @@ add.addEventListener('click', () => {
 });
 subtract.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue))
         operator = subtract.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue));
         console.log(`numbers ` + numbers);
         operate();    
@@ -139,6 +143,7 @@ multiply.addEventListener('click', () => {
         operator = multiply.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue));
         operate();    
         operator = multiply.innerText;
@@ -155,6 +160,7 @@ divide.addEventListener('click', () => {
         operator = '/';
         displayValue = 0    
     } else if (operator != undefined) {
+        displayValue = display.innerText;
         numbers.push(parseInt(displayValue));
         operate();    
         operator = '/';
