@@ -10,6 +10,7 @@ const eight = document.querySelector('.eight')
 const nine = document.querySelector('.nine')
 const zero = document.querySelector('.zero')
 const negative = document.querySelector('.negative')
+const decimal = document.querySelector('.decimal');
 
 const clear = document.querySelector('.AC')
 const add = document.querySelector('.add')
@@ -29,7 +30,7 @@ const operate = () => {
         if (numbers.length === 2) {
             display.innerText = numbers[0]+numbers[1];
             console.log(`numbers ` + numbers);
-            numbers = [parseInt(display.innerText)];
+            numbers = [parseFloat(display.innerText)];
             console.log(`numbers ` + numbers);
             displayValue = 0;
             console.log(operator);
@@ -39,7 +40,7 @@ const operate = () => {
         if (numbers.length === 2) {
             display.innerText = numbers[0]-numbers[1];
             console.log(`numbers ` + numbers);
-            numbers = [parseInt(display.innerText)];
+            numbers = [parseFloat(display.innerText)];
             console.log(`numbers ` + numbers);
             displayValue = 0;
             console.log(operator);
@@ -47,7 +48,7 @@ const operate = () => {
     case 'x':
         if (numbers.length == 2) {
             display.innerText = numbers[0]*numbers[1];
-            numbers = [parseInt(display.innerText)];
+            numbers = [parseFloat(display.innerText)];
             console.log(`numbers ` + numbers);
             displayValue = 1;
             console.log(operator);
@@ -56,7 +57,7 @@ const operate = () => {
         case '/':
             if (numbers.length == 2) {
                 display.innerText = numbers[0]/numbers[1];
-                numbers = [parseInt(display.innerText)];
+                numbers = [parseFloat(display.innerText)];
                 console.log(`numbers ` + numbers);
                 displayValue = 1;
                 console.log(operator);
@@ -108,12 +109,12 @@ zero.addEventListener('click', () => {
 add.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue))
+        numbers.push(parseFloat(displayValue))
         operator = add.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue));
+        numbers.push(parseFloat(displayValue));
         console.log(`numbers ` + numbers);
         operate();    
         operator = add.innerText;
@@ -123,12 +124,12 @@ add.addEventListener('click', () => {
 subtract.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue))
+        numbers.push(parseFloat(displayValue))
         operator = subtract.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue));
+        numbers.push(parseFloat(displayValue));
         console.log(`numbers ` + numbers);
         operate();    
         operator = subtract.innerText;
@@ -138,13 +139,13 @@ subtract.addEventListener('click', () => {
 multiply.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue))
+        numbers.push(parseFloat(displayValue))
         console.log(`numbers ` + numbers);
         operator = multiply.innerText;
         displayValue = 0    
     } else if (operator != undefined) {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue));
+        numbers.push(parseFloat(displayValue));
         operate();    
         operator = multiply.innerText;
         displayValue = display.innerText;
@@ -155,13 +156,13 @@ multiply.addEventListener('click', () => {
 divide.addEventListener('click', () => {
     if (numbers[0] == undefined)  {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue))
+        numbers.push(parseFloat(displayValue))
         console.log(`numbers ` + numbers);
         operator = '/';
         displayValue = 0    
     } else if (operator != undefined) {
         displayValue = display.innerText;
-        numbers.push(parseInt(displayValue));
+        numbers.push(parseFloat(displayValue));
         operate();    
         operator = '/';
         displayValue = display.innerText;
@@ -170,21 +171,27 @@ divide.addEventListener('click', () => {
     }
 });
 equals.addEventListener('click', () => {
-    numbers.push(parseInt(displayValue));
+    numbers.push(parseFloat(displayValue));
     operate();
     numbers = [];
 });
 negative.addEventListener('click', () => {
-    if (parseInt(display.innerText) > 0) {
+    if (parseFloat(display.innerText) > 0) {
         display.innerText = '-' + display.innerText;
         displayValue = display.innerText;
-    } else if (parseInt(display.innerText) < 0) {
+    } else if (parseFloat(display.innerText) < 0) {
         console.log('less than zero');
         let newDisplayText = display.innerText.substring(1);
         console.log('newDisplayText is ' + newDisplayText);
         display.innerText = newDisplayText;
         displayValue =  display.innerText;
     }
+});
+decimal.addEventListener('click', () => {
+    console.log('displayValue ' + displayValue);
+    displayValue = displayValue += '.';
+    console.log('displayValue ' + displayValue);
+    display.innerText = parseFloat(displayValue);
 });
 clear.addEventListener('click', () => {
     numbers = [];
