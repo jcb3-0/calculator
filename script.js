@@ -67,43 +67,43 @@ const operate = () => {
 
 // event listeners
 one.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '1' : displayValue += '1';
+    displayValue === 0 ? displayValue = '1' : displayValue += '1';
     display.innerText = displayValue;
 });
 two.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '2' : displayValue += '2';
+    displayValue === 0 ? displayValue = '2' : displayValue += '2';
     display.innerText = displayValue;
 });
 three.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '3' : displayValue += '3';
+    displayValue === 0 ? displayValue = '3' : displayValue += '3';
     display.innerText = displayValue;
 });
 four.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '4' : displayValue += '4';
+    displayValue === 0 ? displayValue = '4' : displayValue += '4';
     display.innerText = displayValue;
 });
 five.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '5' : displayValue += '5';
+    displayValue === 0 ? displayValue = '5' : displayValue += '5';
     display.innerText = displayValue;
 });
 six.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '6' : displayValue += '6';
+    displayValue === 0 ? displayValue = '6' : displayValue += '6';
     display.innerText = displayValue;
 });
 seven.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '7' : displayValue += '7';
+    displayValue === 0 ? displayValue = '7' : displayValue += '7';
     display.innerText = displayValue;
 });
 eight.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '8' : displayValue += '8';
+    displayValue === 0 ? displayValue = '8' : displayValue += '8';
     display.innerText = displayValue;
 });
 nine.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '9' : displayValue += '9';
+    displayValue === 0 ? displayValue = '9' : displayValue += '9';
     display.innerText = displayValue;
 });
 zero.addEventListener('click', () => {
-    displayValue == 0 ? displayValue = '0' : displayValue += '0';
+    displayValue === 0 ? displayValue = '0' : displayValue += '0';
     display.innerText = displayValue;
 });
 add.addEventListener('click', () => {
@@ -190,8 +190,9 @@ negative.addEventListener('click', () => {
 decimal.addEventListener('click', () => {
     console.log('displayValue ' + displayValue);
     displayValue = displayValue += '.';
+    display.innerText = displayValue;
     console.log('displayValue ' + displayValue);
-    display.innerText = parseFloat(displayValue);
+    // display.innerText = parseFloat(displayValue);
 });
 clear.addEventListener('click', () => {
     numbers = [];
