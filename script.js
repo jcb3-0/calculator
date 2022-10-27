@@ -188,11 +188,12 @@ negative.addEventListener('click', () => {
     }
 });
 decimal.addEventListener('click', () => {
-    console.log('displayValue ' + displayValue);
-    displayValue = displayValue += '.';
-    display.innerText = displayValue;
-    console.log('displayValue ' + displayValue);
-    // display.innerText = parseFloat(displayValue);
+    if (String(displayValue).includes('.') === false) {
+        displayValue = displayValue += '.';
+        display.innerText = displayValue;
+        console.log('displayValue ' + displayValue);
+        // display.innerText = parseFloat(displayValue);    
+    }
 });
 clear.addEventListener('click', () => {
     numbers = [];
