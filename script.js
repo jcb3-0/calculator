@@ -26,44 +26,49 @@ let numbers = [];
 
 const operate = () => {
     switch (operator) {
-    case '+':
-        if (numbers.length === 2) {
-            display.innerText = numbers[0]+numbers[1];
-            console.log(`numbers ` + numbers);
-            numbers = [parseFloat(display.innerText)];
-            console.log(`numbers ` + numbers);
-            displayValue = 0;
-            console.log(operator);
-        }
-        break;
-    case '-':
-        if (numbers.length === 2) {
-            display.innerText = numbers[0]-numbers[1];
-            console.log(`numbers ` + numbers);
-            numbers = [parseFloat(display.innerText)];
-            console.log(`numbers ` + numbers);
-            displayValue = 0;
-            console.log(operator);
-        }
-    case 'x':
-        if (numbers.length == 2) {
-            display.innerText = numbers[0]*numbers[1];
-            numbers = [parseFloat(display.innerText)];
-            console.log(`numbers ` + numbers);
-            displayValue = 1;
-            console.log(operator);
-        }
-        break;
-        case '/':
+        case '+':
+            if (numbers.length === 2) {
+                display.innerText = numbers[0] + numbers[1];
+                console.log(`numbers ` + numbers);
+                numbers = [parseFloat(display.innerText)];
+                console.log(`numbers ` + numbers);
+                displayValue = 0;
+                console.log(operator);
+            }
+            break;
+        case '-':
+            if (numbers.length === 2) {
+                display.innerText = numbers[0] - numbers[1];
+                console.log(`numbers ` + numbers);
+                numbers = [parseFloat(display.innerText)];
+                console.log(`numbers ` + numbers);
+                displayValue = 0;
+                console.log(operator);
+            }
+        case 'x':
             if (numbers.length == 2) {
-                display.innerText = numbers[0]/numbers[1];
+                display.innerText = numbers[0] * numbers[1];
                 numbers = [parseFloat(display.innerText)];
                 console.log(`numbers ` + numbers);
                 displayValue = 1;
                 console.log(operator);
             }
-            break;    
-}};
+            break;
+        case '/':
+            if (numbers.length == 2) {
+                if (numbers[0] / numbers[1] == 'Infinity') {
+                    display.innerText = 'No way!';
+                } else {
+                    display.innerText = numbers[0] / numbers[1];
+                    numbers = [parseFloat(display.innerText)];
+                    console.log(`numbers ` + numbers);
+                    displayValue = 1;
+                    console.log(operator);    
+                }
+            }
+            break;
+    }
+};
 
 // event listeners
 one.addEventListener('click', () => {
@@ -192,7 +197,6 @@ decimal.addEventListener('click', () => {
         displayValue = displayValue += '.';
         display.innerText = displayValue;
         console.log('displayValue ' + displayValue);
-        // display.innerText = parseFloat(displayValue);    
     }
 });
 clear.addEventListener('click', () => {
