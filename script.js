@@ -50,7 +50,7 @@ const operate = () => {
                 display.innerText = numbers[0] * numbers[1];
                 numbers = [parseFloat(display.innerText)];
                 console.log(`numbers ` + numbers);
-                displayValue = 1;
+                displayValue = 0;
                 console.log(operator);
             }
             break;
@@ -62,7 +62,7 @@ const operate = () => {
                     display.innerText = numbers[0] / numbers[1];
                     numbers = [parseFloat(display.innerText)];
                     console.log(`numbers ` + numbers);
-                    displayValue = 1;
+                    displayValue = 0;
                     console.log(operator);    
                 }
             }
